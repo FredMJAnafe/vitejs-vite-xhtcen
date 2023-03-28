@@ -68,6 +68,7 @@ export default {
       tdCourant: null,
       infoDistante: '',
       paramCourant: '',
+      erreur:''
     };
   },
   mounted() {
