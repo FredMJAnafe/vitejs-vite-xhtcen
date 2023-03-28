@@ -214,6 +214,7 @@ export default {
       return '-';
     },
     resetSelection() {
+      this.erreur = '';
       this.idCourant = 0;
       this.indexCourant = -1;
       if (this.tdCourant) {
