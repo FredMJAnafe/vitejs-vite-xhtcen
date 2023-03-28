@@ -224,7 +224,7 @@ export default {
         infoDistante = infoDistante.extra_info;
       }
       if (infoDistante && e.detail.reponse.extra_info) {
-        let i = this.$parent.items[this.$parent.indexCourant];
+        let i = this.itemCourant;
         infoDistante = infoDistante[i.opco];
       }
       if (infoDistante) {
