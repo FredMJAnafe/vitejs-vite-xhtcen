@@ -3,11 +3,13 @@
     :nomComposant="etatFormulaire"
     :item="itemCourant"
     :param="paramCourant"
-    :configs="configs" 
+    :configs="configs"
     :conteneurFormulaire="this"
     v-if="!!etatFormulaire"
   >
   </Formulaire>
+
+  <div class="erreur" v-if="!!erreur">Retour OPCO : {{ erreur }}</div>
 
   <form id="formcreadossier" @click="creerDossier">
     <input type="hidden" name="datemaj" value="" />
@@ -56,7 +58,7 @@ export default {
       items: [],
       nomCollectionPrincipale: 'dossier',
       opcos: [],
-      configs:[],
+      configs: [],
       apprentis: [],
       employeurs: [],
       dossiers: [],
@@ -217,9 +219,9 @@ export default {
       this.tdCourant = null;
       this.changeEtatFormulaire('');
     },
-    getErreur(e) { 
+    getErreur(e) {
       let erreur = '',
-          infoDistante = e.detail.reponse.dist_info;
+        infoDistante = e.detail.reponse.dist_info;
       if (infoDistante) {
         infoDistante = infoDistante.extra_info;
       }
@@ -228,7 +230,7 @@ export default {
         infoDistante = infoDistante[i.opco];
       }
       if (infoDistante) {
-        erreur = infoDistante.erreur;        
+        erreur = infoDistante.erreur;
       }
       return erreur;
     },
@@ -246,7 +248,7 @@ export default {
         //this.infoDistante = e.detail.reponse.dist_info;
       }
       this.erreur = this.getErreur(e);
-      if(!this.erreur) {
+      if (!this.erreur) {
         this.resetSelection();
       }
     },
@@ -627,5 +629,12 @@ select {
 }
 .espacefiltertable {
   max-width: 180px;
+}
+.erreur {
+  margin: 5px;
+  padding: 3px;
+  display: block;
+  background: red;
+  color: white;
 }
 </style>

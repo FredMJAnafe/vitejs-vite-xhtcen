@@ -28,7 +28,6 @@
       </div>
     </div>
   </form>
-  <div class="erreur" v-if="!!erreur">Retour OPCO : {{ erreur }}</div>
 </template>
 
 <script>
@@ -73,7 +72,7 @@ export default {
     item: Object,
     param: String,
     table: String,
-    configs:Array
+    configs: Array,
   },
   data() {
     return {
@@ -132,12 +131,4 @@ form select {
 }
 </style>
 
-<style scoped>
-.erreur {
-  margin: 5px;
-  padding: 3px;
-  display: block;
-  background: red;
-  color: white;
-}
-</style>
+<style scoped></style>
