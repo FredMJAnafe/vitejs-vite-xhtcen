@@ -9,7 +9,9 @@
   >
   </Formulaire>
 
-  <div class="erreur" v-if="!!erreur">Retour OPCO : {{ erreur }}</div>
+  <div class="erreur" v-if="!!erreur">
+    <strong>Retour OPCO :</strong> {{ erreur }}
+  </div>
 
   <form id="formcreadossier" @click="creerDossier">
     <input type="hidden" name="datemaj" value="" />
@@ -68,7 +70,7 @@ export default {
       tdCourant: null,
       infoDistante: '',
       paramCourant: '',
-      erreur:''
+      erreur: '',
     };
   },
   mounted() {
@@ -637,5 +639,6 @@ select {
   display: block;
   background: red;
   color: white;
+  text-align: left;
 }
 </style>
